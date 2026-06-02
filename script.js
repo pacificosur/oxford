@@ -533,3 +533,25 @@ function generarCalendario(){
 }
 
 cargarReflexiones();
+
+
+
+
+
+
+
+document
+.querySelectorAll('.book-card')
+.forEach(card=>{
+
+card.addEventListener(
+'click',
+()=>{
+
+alert(
+'Próximamente disponible.'
+);
+
+});
+
+});

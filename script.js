@@ -352,52 +352,6 @@ card.style.transform =
 
 });
 
-/* ==========================
-   REFLEXIONES ROTATIVAS
-========================== */
-
-const reflexiones = [
-
-"Un día a la vez.",
-
-"La sobriedad es una nueva forma de vivir.",
-
-"La recuperación comienza con la honestidad.",
-
-"Primero lo primero.",
-
-"Solo por hoy.",
-
-"La experiencia compartida salva vidas.",
-
-"La serenidad llega con la práctica.",
-
-"La unidad es nuestra fortaleza."
-
-];
-
-const blockquote =
-document.querySelector(
-".reflection-card blockquote"
-);
-
-if(blockquote){
-
-setInterval(()=>{
-
-const random =
-
-Math.floor(
-Math.random() *
-reflexiones.length
-);
-
-blockquote.innerText =
-reflexiones[random];
-
-},8000);
-
-}
 
 /* ==========================
    CURRENT YEAR FOOTER

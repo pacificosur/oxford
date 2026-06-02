@@ -446,7 +446,7 @@ async function cargarReflexiones() {
 
     const response =
     await fetch(
-        'data/reflexiones.json'
+        'reflexiones.json'
     );
 
     reflexiones =

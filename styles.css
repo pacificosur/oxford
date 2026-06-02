@@ -943,3 +943,115 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* =======================================
+NUESTRA CASA
+======================================= */
+
+.casa-grid{
+
+display:grid;
+
+grid-template-columns:
+1.2fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+.casa-imagen img{
+
+width:100%;
+
+display:block;
+
+border-radius:24px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.15);
+
+transition:.4s;
+
+}
+
+.casa-imagen img:hover{
+
+transform:scale(1.02);
+
+}
+
+.casa-contenido h2{
+
+font-size:3rem;
+
+margin-bottom:20px;
+
+color:#0B1F3A;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+}
+
+.casa-contenido p{
+
+font-size:1.1rem;
+
+line-height:2;
+
+margin-bottom:20px;
+
+color:#475569;
+
+}
+
+.casa-contenido blockquote{
+
+margin-top:30px;
+
+padding-left:25px;
+
+border-left:
+4px solid #B89B5E;
+
+font-style:italic;
+
+font-size:1.2rem;
+
+color:#0B1F3A;
+
+}
+
+.section-tag{
+
+display:inline-block;
+
+padding:8px 18px;
+
+background:#0B1F3A;
+
+color:white;
+
+border-radius:50px;
+
+margin-bottom:20px;
+
+font-size:.85rem;
+
+letter-spacing:1px;
+
+}
+
+@media(max-width:900px){
+
+.casa-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+}

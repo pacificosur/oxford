@@ -586,7 +586,7 @@ function calcularDiasOxford() {
     ) + 1;
 
     document
-    .getElementById("dias-sobriedad")
+    .getElementById("contador-sobriedad")
     .textContent = dias;
 
 }

@@ -565,12 +565,13 @@ alert(
 function calcularDiasOxford() {
 
     const fundacion =
-    new Date(2026, 4, 22); // Mayo = 4
+    new Date(2026, 4, 22); // 22 mayo
 
     const hoy =
     new Date();
 
-    // ayer
+    // Si aún no inicia la sesión de hoy,
+    // contar solo hasta ayer
     hoy.setDate(
         hoy.getDate() - 1
     );
@@ -582,12 +583,10 @@ function calcularDiasOxford() {
     Math.floor(
         diferencia /
         (1000 * 60 * 60 * 24)
-    );
+    ) + 1;
 
     document
-    .getElementById(
-        "contador-sobriedad"
-    )
+    .getElementById("dias-sobriedad")
     .textContent = dias;
 
 }

@@ -555,3 +555,41 @@ alert(
 });
 
 });
+
+
+
+
+
+
+
+function calcularDiasOxford() {
+
+    const fundacion =
+    new Date(2026, 4, 22); // Mayo = 4
+
+    const hoy =
+    new Date();
+
+    // ayer
+    hoy.setDate(
+        hoy.getDate() - 1
+    );
+
+    const diferencia =
+    hoy - fundacion;
+
+    const dias =
+    Math.floor(
+        diferencia /
+        (1000 * 60 * 60 * 24)
+    );
+
+    document
+    .getElementById(
+        "contador-sobriedad"
+    )
+    .textContent = dias;
+
+}
+
+calcularDiasOxford();

@@ -1,17 +1,22 @@
 [
 {
-"titulo":"Compendio 2026",
+"titulo":"Experiencias - 1980's",
 "descripcion":"Material de servicio.",
 "imagen":"imagenes/compendio1.png"
 },
 {
-"titulo":"Revista Plenitud",
+"titulo":"Veteranos",
 "descripcion":"Experiencia, fortaleza y esperanza.",
-"imagen":"imagenes/plenitud1.jpg"
+"imagen":"imagenes/huella.jpg"
 },
 {
-"titulo":"Boletín Plenitud",
+"titulo":"Responsabilidad",
 "descripcion":"Información institucional.",
-"imagen":"imagenes/boletin1.jpg"
+"imagen":"imagenes/responsabilidad.png"
+},
+{
+"titulo":"Lenguaje del Corazón",
+"descripcion":"Información institucional.",
+"imagen":"imagenes/lenguaje.png"
 }
 ]

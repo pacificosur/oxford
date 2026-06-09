@@ -1096,7 +1096,7 @@ async function cargarAniversario(){
     try{
 
         const response =
-        await fetch('aniversario.json');
+        await fetch('datosrelevantes.json');
 
         if(!response.ok){
 

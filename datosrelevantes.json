@@ -1,28 +1,25 @@
 [
-{
-"imagen":"imagenes/aniversario/bill.jpg",
-"titulo":"91 Años de Esperanza",
-"texto":"Bill Wilson descubrió que ayudar a otro alcohólico era esencial para conservar su propia sobriedad."
-},
+    {
+        "imagen": "imagenes/aniversario/bill.jpg",
+        "titulo": "91 Años de Esperanza",
+        "texto": "Bill Wilson descubrió que ayudar a otro alcohólico era esencial para conservar su propia sobriedad."
+    },
 
-```
-{
-    "imagen":"imagenes/aniversario/bob.jpg",
-    "titulo":"Un Médico, Un Alcohólico, Una Solución",
-    "texto":"El 10 de junio de 1935 el Dr. Bob tomó su última bebida alcohólica, fecha reconocida como el nacimiento de Alcohólicos Anónimos."
-},
+    {
+        "imagen": "imagenes/aniversario/bob.jpg",
+        "titulo": "Un Médico, Un Alcohólico, Una Solución",
+        "texto": "El 10 de junio de 1935 el Dr. Bob tomó su última bebida alcohólica, fecha reconocida como el nacimiento de Alcohólicos Anónimos."
+    },
 
-{
-    "imagen":"imagenes/aniversario/akron.jpg",
-    "titulo":"El Inicio de un Movimiento Mundial",
-    "texto":"En Akron, Ohio, dos alcohólicos compartieron experiencia y encontraron una solución que cambiaría millones de vidas."
-},
+    {
+        "imagen": "imagenes/aniversario/akron.jpg",
+        "titulo": "El Inicio de un Movimiento Mundial",
+        "texto": "En Akron, Ohio, dos alcohólicos compartieron experiencia y encontraron una solución que cambiaría millones de vidas."
+    },
 
-{
-    "imagen":"imagenes/aniversario/aa91.jpg",
-    "titulo":"91 Años Compartiendo Esperanza",
-    "texto":"Lo que comenzó con Bill W. y el Dr. Bob continúa llevando recuperación a millones de personas alrededor del mundo."
-}
-```
-
+    {
+        "imagen": "imagenes/aniversario/aa91.jpg",
+        "titulo": "91 Años Compartiendo Esperanza",
+        "texto": "Lo que comenzó con Bill W. y el Dr. Bob continúa llevando recuperación a millones de personas alrededor del mundo."
+    }
 ]

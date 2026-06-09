@@ -255,27 +255,37 @@ resultado.innerHTML =
 ========================== */
 
 document
-.querySelectorAll('a[href^="#"]')
-.forEach(anchor=>{
+.querySelectorAll("a")
+.forEach(enlace=>{
 
-anchor.addEventListener(
+enlace.addEventListener(
 
 "click",
 
 function(e){
 
-e.preventDefault();
+const href =
+this.getAttribute("href");
+
+if(
+!href ||
+href === "#" ||
+!href.startsWith("#")
+){
+return;
+}
 
 const destino =
-document.querySelector(
-this.getAttribute("href")
-);
+document.querySelector(href);
 
 if(destino){
 
+e.preventDefault();
+
 destino.scrollIntoView({
 
-behavior:"smooth"
+behavior:"smooth",
+block:"start"
 
 });
 

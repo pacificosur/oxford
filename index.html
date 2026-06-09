@@ -332,177 +332,74 @@ NUESTRA CASA
 
 <section id="biblioteca" class="section">
 
+```
 <div class="section-header">
 
-<h2>Biblioteca Digital</h2>
+    <h2>Biblioteca Digital</h2>
 
-<p>
-
-Material de estudio y crecimiento espiritual.
-
-</p>
+    <p>
+        Literatura, compendios, revistas y material de recuperación.
+    </p>
 
 </div>
 
-<div class="cards-grid">
+<div class="biblioteca-categoria">
 
-<div class="module-card">
+    <h3 class="biblioteca-subtitulo">
+        Productos Plenitud
+    </h3>
 
-<h3>📘 Libro Grande</h3>
+    <div class="carousel-container">
 
-<p>
+        <button class="carousel-btn prev"
+            onclick="moverCarrusel('plenitud',-1)">
+            ❮
+        </button>
 
-Fundamentos de la recuperación.
-
-</p>
-
-</div>
-
-<div class="module-card">
-
-<h3>📗 Doce Pasos</h3>
-
-<p>
-
-Guía práctica para el cambio.
-
-</p>
-
-</div>
-
-<div class="module-card">
-
-<h3>📕 Viviendo Sobrio</h3>
-
-<p>
-
-Herramientas para mantenerse sobrio.
-
-</p>
-
-</div>
-
-<div class="module-card">
-
-<h3>📖 Folletos</h3>
-
-<p>
-
-Información esencial para miembros y familiares.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================
-LITERATURA
-===================================== -->
-
-<section id="literatura" class="section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-
-            Literatura A.A.
-
-        </h2>
-
-        <div class="library-grid">
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>Libro Grande</h3>
-                <p>Alcohólicos Anónimos</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>12 Pasos y 12 Tradiciones</h3>
-                <p>Programa de recuperación</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>Viviendo Sobrio</h3>
-                <p>Herramientas para la sobriedad</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>Llegamos a Creer</h3>
-                <p>Espiritualidad y recuperación</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>Reflexiones Diarias</h3>
-                <p>Lecturas para cada día</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📘</div>
-                <h3>Lenguaje del Corazón</h3>
-                <p>Escritos de Bill W.</p>
-            </div>
-
+        <div
+            id="plenitud-carousel"
+            class="carousel-track">
         </div>
+
+        <button class="carousel-btn next"
+            onclick="moverCarrusel('plenitud',1)">
+            ❯
+        </button>
 
     </div>
 
-</section>
+</div>
 
+<div class="biblioteca-categoria">
 
+    <h3 class="biblioteca-subtitulo">
+        Literatura A.A.
+    </h3>
 
-<!-- =====================================
-PLENITUD
-===================================== -->
+    <div class="carousel-container">
 
-<section id="plenitud" class="section alt-bg">
+        <button class="carousel-btn prev"
+            onclick="moverCarrusel('literatura',-1)">
+            ❮
+        </button>
 
-    <div class="container">
-
-        <h2 class="section-title">
-
-            Plenitud y Compendios
-
-        </h2>
-
-        <div class="library-grid">
-
-            <div class="book-card">
-                <div class="book-icon">📖</div>
-                <h3>Revista Plenitud</h3>
-                <p>Experiencia, fortaleza y esperanza</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📖</div>
-                <h3>Compendios</h3>
-                <p>Material de servicio</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📖</div>
-                <h3>Boletines</h3>
-                <p>Información institucional</p>
-            </div>
-
-            <div class="book-card">
-                <div class="book-icon">📖</div>
-                <h3>Material Histórico</h3>
-                <p>Historia de A.A.</p>
-            </div>
-
+        <div
+            id="literatura-carousel"
+            class="carousel-track">
         </div>
+
+        <button class="carousel-btn next"
+            onclick="moverCarrusel('literatura',1)">
+            ❯
+        </button>
 
     </div>
 
+</div>
+```
+
 </section>
+
 
 <!-- ===================== -->
 <!-- SOBRIEDAD -->

@@ -846,26 +846,25 @@ renderAlbumes();
 
 function renderAlbumes(){
 
-const container =
+const carrusel =
 document.getElementById(
-'albums-container'
+'album-carousel'
 );
 
-if(!container) return;
+if(!carrusel) return;
 
-container.innerHTML='';
+carrusel.innerHTML='';
 
 albumes.forEach(album=>{
 
-container.innerHTML += `
+carrusel.innerHTML += `
 
-<div
-class="album-card"
-onclick="abrirAlbum('${album.id}')">
+<div class="album-card">
 
 <img
 src="${album.portada}"
-alt="${album.titulo}">
+alt="${album.titulo}"
+>
 
 <div class="album-content">
 
@@ -881,10 +880,20 @@ ${album.descripcion}
 
 </p>
 
-<div class="album-badge">
+<div class="album-total">
 
 ${album.fotos.length}
-Fotografías
+ fotografías
+
+</div>
+
+<br>
+
+<div
+class="album-link"
+onclick="abrirAlbum('${album.id}')">
+
+Ver Álbum
 
 </div>
 
@@ -895,6 +904,18 @@ Fotografías
 `;
 
 });
+
+}
+
+function moverAlbumes(direccion){
+
+const carrusel =
+document.getElementById(
+'album-carousel'
+);
+
+carrusel.scrollLeft +=
+direccion * 500;
 
 }
 
@@ -929,7 +950,7 @@ document.getElementById(
 'galleryTitle'
 ).innerText =
 
-`${fotoActual+1} / ${fotosActuales.length}`;
+`${fotoActual+1} de ${fotosActuales.length}`;
 
 }
 
@@ -974,4 +995,3 @@ document.getElementById(
 }
 
 cargarGaleria();
-

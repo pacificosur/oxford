@@ -1415,3 +1415,42 @@ document.addEventListener(
     }
 
 );
+/* ==========================
+  Notas releveantes del grupo volatil
+========================== */
+
+document.addEventListener(
+
+'DOMContentLoaded',
+
+()=>{
+
+const noticia =
+document.querySelector(
+'.news-content'
+);
+
+if(!noticia) return;
+
+noticia.animate(
+
+[
+{
+opacity:0,
+transform:'translateY(40px)'
+},
+{
+opacity:1,
+transform:'translateY(0)'
+}
+],
+
+{
+duration:1200,
+fill:'forwards'
+}
+
+);
+
+}
+);

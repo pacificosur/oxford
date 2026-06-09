@@ -823,7 +823,6 @@ cargarVisitas();
 /* ==========================
   galeria
 ========================== */
-
 let albumes = [];
 
 let fotosActuales = [];

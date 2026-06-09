@@ -1506,20 +1506,45 @@ min-width:280px;
 /* ==========================================
    Galería
 ========================================== */
-.albums-grid{
+.album-carousel-container{
 
-display:grid;
+position:relative;
 
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
+display:flex;
 
-gap:30px;
+align-items:center;
+
+gap:15px;
 
 margin-top:50px;
 
 }
 
+.album-carousel{
+
+display:flex;
+
+overflow-x:auto;
+
+scroll-behavior:smooth;
+
+gap:30px;
+
+padding:20px;
+
+scrollbar-width:none;
+
+}
+
+.album-carousel::-webkit-scrollbar{
+
+display:none;
+
+}
+
 .album-card{
+
+min-width:420px;
 
 background:white;
 
@@ -1527,11 +1552,11 @@ border-radius:25px;
 
 overflow:hidden;
 
-cursor:pointer;
-
 box-shadow:var(--shadow);
 
 transition:.4s;
+
+flex-shrink:0;
 
 }
 
@@ -1547,7 +1572,7 @@ box-shadow:var(--shadow-hover);
 
 width:100%;
 
-height:240px;
+height:280px;
 
 object-fit:cover;
 
@@ -1571,9 +1596,11 @@ margin-bottom:10px;
 
 color:var(--gray);
 
+margin-bottom:10px;
+
 }
 
-.album-badge{
+.album-total{
 
 display:inline-block;
 
@@ -1585,13 +1612,63 @@ padding:8px 14px;
 
 border-radius:30px;
 
-font-size:.85rem;
-
-margin-top:15px;
+margin-top:10px;
 
 }
 
-/* VISOR */
+.album-link{
+
+margin-top:20px;
+
+display:inline-block;
+
+padding:12px 24px;
+
+background:var(--oxford-blue);
+
+color:white;
+
+border-radius:30px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.album-link:hover{
+
+transform:scale(1.05);
+
+}
+
+.album-btn{
+
+width:60px;
+
+height:60px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--oxford-blue);
+
+color:white;
+
+font-size:2rem;
+
+cursor:pointer;
+
+}
+
+.album-btn:hover{
+
+transform:scale(1.1);
+
+}
+
+/* MODAL */
 
 .gallery-modal{
 
@@ -1620,7 +1697,7 @@ max-width:90%;
 
 max-height:80vh;
 
-border-radius:15px;
+border-radius:20px;
 
 }
 
@@ -1638,15 +1715,15 @@ margin-top:20px;
 
 position:absolute;
 
-top:25px;
+top:20px;
 
-right:35px;
+right:30px;
 
 font-size:3rem;
 
-color:white;
-
 cursor:pointer;
+
+color:white;
 
 }
 
@@ -1666,19 +1743,14 @@ border:none;
 
 border-radius:50%;
 
-background:rgba(255,255,255,.2);
+background:
+rgba(255,255,255,.20);
 
 color:white;
 
 font-size:2rem;
 
 cursor:pointer;
-
-}
-
-.gallery-nav:hover{
-
-background:rgba(255,255,255,.4);
 
 }
 
@@ -1694,3 +1766,18 @@ right:30px;
 
 }
 
+@media(max-width:768px){
+
+.album-card{
+
+min-width:300px;
+
+}
+
+.album-btn{
+
+display:none;
+
+}
+
+}

@@ -331,8 +331,6 @@ NUESTRA CASA
 <!-- ===================== -->
 
 <section id="biblioteca" class="section">
-
-```
 <div class="section-header">
 
     <h2>Biblioteca Digital</h2>
@@ -396,8 +394,6 @@ NUESTRA CASA
     </div>
 
 </div>
-```
-
 </section>
 
 
@@ -551,49 +547,39 @@ Bienestar y nutrición.
 <!-- EVENTOS -->
 <!-- ===================== -->
 
-<section id="eventos" class="section">
-
+    <section id="eventos" class="section">
 <div class="section-header">
 
-<h2>Próximos Eventos</h2>
+    <h2>Próximos Eventos</h2>
+
+    <p>
+        Congresos, aniversarios, desayunos y actividades de servicio.
+    </p>
 
 </div>
 
-<div class="timeline">
+<div class="carousel-container">
 
+    <button
+        class="carousel-btn prev"
+        onclick="moverCarruselEventos(-1)">
+        ❮
+    </button>
 
-    <div class="event-item">
-        <h3>91 Aniversario de Alcohólicos Anónimos</h3>
-        <p>10 junio 2026</p>
+    <div
+        id="eventos-carousel"
+        class="carousel-track">
     </div>
 
-    <div class="event-item">
-        <h3>Desayuno con locutores y aleados</h3>
-        <p>28 junio 2026</p>
-    </div>
-
-     <div class="event-item">
-        <h3>XX Congreso de Inter-Áreas</h3>
-        <h3>Juchitán Oaxaca</h3>
-        <p>31 de julio, 1 y 2 de agosto de 2026</p>
-    </div>
-
-    <div class="event-item">
-        <h3>XXVI Congreso del Area Oaxaca Centro</h3>
-        <h3>Ocotlán de Morelos</h3>
-        <p>23, 24 y 25 de octubre de 2026</p>
-    </div>
-
-    <div class="event-item">
-        <h3>14ª Convención Nacional de Alcohólicos Anónimos</h3>
-        <h2>AA: Una Luz de Esperanza</h2>
-        <h3>Estadio Banorte. CDMX</h3>
-        <p>11, 12 y 13 de junio de 2027</p>
-    </div>
+    <button
+        class="carousel-btn next"
+        onclick="moverCarruselEventos(1)">
+        ❯
+    </button>
 
 </div>
-
 </section>
+
 
 <!-- ===================== -->
 <!-- HISTORIA -->

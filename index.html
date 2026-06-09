@@ -253,113 +253,142 @@ NOTICIA DESTACADA
 <!-- REFLEXION y EXPERIENCIA-->
 <!-- ===================== -->
 
-
-<section class="oxford-diario">
-
-
-<div class="oxford-encabezado">
-    <h2>📅 Reflexión y Experiencia del Día</h2>
+<section class="oxford-recursos">
+<div class="encabezado-recursos">
+    <h2>📅 Reflexión y Experiencia Diaria</h2>
     <p>
-        Selecciona una fecha para consultar una reflexión y una experiencia de recuperación.
+        Selecciona una fecha para consultar los recursos de recuperación.
     </p>
 </div>
 
 <div class="oxford-calendario">
-    <input
-        type="date"
-        id="fechaSeleccionada"
-    >
 
-    <div class="fecha-actual">
-        <span id="textoFecha"></span>
+    <div class="cal-header">
+
+        <button id="mesAnterior">
+            ❮
+        </button>
+
+        <h3 id="tituloMes">
+            Junio 2026
+        </h3>
+
+        <button id="mesSiguiente">
+            ❯
+        </button>
+
     </div>
+
+    <div class="dias-semana">
+
+        <span>Lu</span>
+        <span>Ma</span>
+        <span>Mi</span>
+        <span>Ju</span>
+        <span>Vi</span>
+        <span>Sá</span>
+        <span>Do</span>
+
+    </div>
+
+    <div id="diasCalendario"></div>
+
 </div>
 
-<div class="oxford-tarjetas">
+<div class="fecha-seleccionada">
+    <span id="textoFecha"></span>
+</div>
 
-    <!-- REFLEXIÓN -->
+<div class="tarjetas-diarias">
 
-    <article class="tarjeta-oxford" id="tarjetaReflexion">
+    <article class="tarjeta-diaria">
 
-        <div class="tarjeta-icono">
-            📖
+        <div class="cabecera-tarjeta">
+
+            <span class="icono">
+                📖
+            </span>
+
+            <span class="tipo">
+                Reflexión Diaria
+            </span>
+
         </div>
-
-        <span class="etiqueta">
-            Reflexión Diaria
-        </span>
 
         <h3 id="tituloReflexion">
             Selecciona una fecha
         </h3>
 
         <span
-            class="fecha-item"
+            class="fecha-card"
             id="fechaReflexion"
         >
         </span>
 
-        <p id="extractoReflexion">
-            Selecciona una fecha del calendario.
+        <p
+            class="extracto"
+            id="extractoReflexion"
+        >
+            Selecciona una fecha para visualizar la reflexión.
         </p>
 
         <a
             id="btnReflexion"
-            class="btn-oxford"
+            class="btn-card"
             href="#"
             target="_blank"
         >
-            Leer reflexión completa →
+            Leer reflexión →
         </a>
 
     </article>
 
-    <!-- EXPERIENCIA -->
+    <article class="tarjeta-diaria">
 
-    <article class="tarjeta-oxford" id="tarjetaExperiencia">
+        <div class="cabecera-tarjeta">
 
-        <div class="tarjeta-icono">
-            ✍️
+            <span class="icono">
+                ✍️
+            </span>
+
+            <span class="tipo">
+                Experiencia Diaria
+            </span>
+
         </div>
-
-        <span class="etiqueta">
-            Experiencia Diaria
-        </span>
 
         <h3 id="tituloExperiencia">
             Selecciona una fecha
         </h3>
 
         <span
-            class="fecha-item"
+            class="fecha-card"
             id="fechaExperiencia"
         >
         </span>
 
-        <p id="extractoExperiencia">
-            Selecciona una fecha del calendario.
+        <p
+            class="extracto"
+            id="extractoExperiencia"
+        >
+            Selecciona una fecha para visualizar la experiencia.
         </p>
-
-        <div class="autor-box">
-            <strong id="autorExperiencia"></strong>
-            <span id="areaExperiencia"></span>
-        </div>
 
         <a
             id="btnExperiencia"
-            class="btn-oxford"
+            class="btn-card"
             href="#"
             target="_blank"
         >
-            Leer experiencia completa →
+            Leer experiencia →
         </a>
 
     </article>
 
 </div>
 
-
 </section>
+
 
 
 <!-- =======================================

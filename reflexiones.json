@@ -1,15 +1,36 @@
 {
+  "06-07": {
+    "titulo": "ESPERANZA A LARGO PLAZO",
+    "fecha": "07 de Junio",
+    "extracto": "La esperanza nace al comprender la naturaleza de nuestra enfermedad y el camino de la recuperación. Con la ayuda de Dios, la vida mejora día a día y el corazón se llena de Su presencia.",
+    "url": "https://www.aamexico.org.mx/"
+  },
+
   "06-09": {
     "titulo": "VIVIR EN EL PRESENTE",
     "fecha": "09 de Junio",
-    "extracto": "Primero tratamos de vivir en el presente, simplemente para mantenernos sobrios...",
+    "extracto": "Primero tratamos de vivir en el presente para mantenernos sobrios. Aprender a vivir un día a la vez nos permite enfrentar la vida con serenidad, aceptación y confianza en un Poder Superior.",
     "url": "https://www.aamexico.org.mx/"
   },
 
   "06-10": {
-    "titulo": "TÍTULO DEL DÍA",
+    "titulo": "¿IMPACIENTE? TRATA LA LEVITACIÓN",
     "fecha": "10 de Junio",
-    "extracto": "Resumen breve de la reflexión correspondiente...",
+    "extracto": "La impaciencia puede dominar nuestras reacciones ante las frustraciones. Ver las situaciones desde una perspectiva más elevada ayuda a controlar las emociones y encontrar serenidad.",
+    "url": "https://www.aamexico.org.mx/"
+  },
+
+  "06-11": {
+    "titulo": "OBLIGACIONES FAMILIARES",
+    "fecha": "11 de Junio",
+    "extracto": "El crecimiento espiritual debe incluir nuestras responsabilidades con la familia. La paciencia, la tolerancia y la práctica diaria de los principios fortalecen nuestras relaciones.",
+    "url": "https://www.aamexico.org.mx/"
+  },
+
+  "06-12": {
+    "titulo": "FORMAR AUTÉNTICAS RELACIONES",
+    "fecha": "12 de Junio",
+    "extracto": "La sobriedad nos brinda la oportunidad de aprender a construir relaciones equilibradas, sinceras y confiables con los demás mediante la oración, la reflexión y la práctica espiritual.",
     "url": "https://www.aamexico.org.mx/"
   }
 }

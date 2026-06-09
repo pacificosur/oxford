@@ -1078,3 +1078,47 @@ fotoSiguiente
 );
 
 });
+
+/* ==========================
+   banner temas importantes al inicio
+========================== */
+
+const slides =
+document.querySelectorAll(
+'.banner-slide'
+);
+
+let slideActual = 0;
+
+function cambiarBanner(){
+
+slides.forEach(slide=>{
+
+slide.classList.remove(
+'active'
+);
+
+});
+
+slideActual++;
+
+if(
+slideActual >=
+slides.length
+){
+
+slideActual = 0;
+
+}
+
+slides[slideActual]
+.classList.add(
+'active'
+);
+
+}
+
+setInterval(
+cambiarBanner,
+6000
+);

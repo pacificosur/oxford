@@ -686,3 +686,100 @@ direccion * 320;
 }
 
 cargarBiblioteca();
+
+/* ==========================================
+   Carrusel de eventos
+========================================== */
+let eventos = [];
+
+async function cargarEventos(){
+
+const response =
+await fetch(
+'eventos.json'
+);
+
+eventos =
+await response.json();
+
+renderEventos();
+
+}
+
+function renderEventos(){
+
+const contenedor =
+document.getElementById(
+'eventos-carousel'
+);
+
+if(!contenedor) return;
+
+contenedor.innerHTML='';
+
+eventos.forEach(evento=>{
+
+contenedor.innerHTML += `
+
+<div class="event-card">
+
+<img
+src="${evento.imagen}"
+alt="${evento.titulo}"
+
+>
+
+<div class="event-content">
+
+<div class="event-fecha">
+
+${evento.fecha}
+
+</div>
+
+<h3>
+
+${evento.titulo}
+
+</h3>
+
+<div class="event-lugar">
+
+📍 ${evento.lugar}
+
+</div>
+
+<p class="event-descripcion">
+
+${evento.descripcion}
+
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function moverCarruselEventos(
+direccion
+){
+
+const track =
+document.getElementById(
+'eventos-carousel'
+);
+
+track.scrollLeft +=
+direccion * 380;
+
+}
+
+cargarEventos();
+
+
+

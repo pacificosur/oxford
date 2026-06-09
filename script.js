@@ -1314,7 +1314,6 @@ fill:'forwards'
 /* ==========================
    REFLEXIONES Y EXPERIENCIAS
 ========================== */
-
 /* ==================================================
 REFLEXIONES Y EXPERIENCIAS OXFORD
 ================================================== */
@@ -1589,7 +1588,9 @@ reflexiones[clave];
 const experiencia =
 experiencias[clave];
 
-/* REFLEXIÓN */
+/* ==========================
+   REFLEXIÓN
+========================== */
 
 if(reflexion){
 
@@ -1622,16 +1623,24 @@ if(reflexion){
 
     document.getElementById(
         "fechaReflexion"
-    ).textContent = "";
+    ).textContent =
+    "";
 
     document.getElementById(
         "extractoReflexion"
     ).textContent =
     "No existe contenido para esta fecha.";
 
+    document.getElementById(
+        "btnReflexion"
+    ).href =
+    "#";
+
 }
 
-/* EXPERIENCIA */
+/* ==========================
+   EXPERIENCIA
+========================== */
 
 if(experiencia){
 
@@ -1651,6 +1660,16 @@ if(experiencia){
     experiencia.extracto;
 
     document.getElementById(
+        "autorExperiencia"
+    ).textContent =
+    experiencia.autor || "";
+
+    document.getElementById(
+        "areaExperiencia"
+    ).textContent =
+    experiencia.area || "";
+
+    document.getElementById(
         "btnExperiencia"
     ).href =
     experiencia.url;
@@ -1664,12 +1683,28 @@ if(experiencia){
 
     document.getElementById(
         "fechaExperiencia"
-    ).textContent = "";
+    ).textContent =
+    "";
 
     document.getElementById(
         "extractoExperiencia"
     ).textContent =
     "No existe contenido para esta fecha.";
+
+    document.getElementById(
+        "autorExperiencia"
+    ).textContent =
+    "";
+
+    document.getElementById(
+        "areaExperiencia"
+    ).textContent =
+    "";
+
+    document.getElementById(
+        "btnExperiencia"
+    ).href =
+    "#";
 
 }
 

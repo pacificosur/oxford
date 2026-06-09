@@ -2039,3 +2039,176 @@ flex-direction:column;
 }
 
 }
+
+/* ==========================================
+REFLEXIONES Y EXPERIENCIAS
+========================================== */
+
+/* =========================
+CSS
+========================= */
+
+.oxford-diario{
+max-width:1200px;
+margin:70px auto;
+padding:0 20px;
+}
+
+.oxford-encabezado{
+text-align;
+margin-bottom:35px;
+}
+
+.oxford-encabezado h2{
+color:#163F74;
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.oxford-encabezado p{
+color:#666;
+}
+
+.oxford-calendario{
+text-align;
+margin-bottom:45px;
+}
+
+#fechaSeleccionada{
+border;
+outline;
+background:#163F74;
+color;
+padding:14px 24px;
+border-radius:12px;
+font-size:1rem;
+cursor;
+box-shadow:0 10px 25px rgba(22,63,116,.25);
+}
+
+.fecha-actual{
+margin-top:18px;
+color:#163F74;
+font-size:1.15rem;
+font-weight:600;
+}
+
+.oxford-tarjetas{
+display;
+grid-template-columns(auto-fit,minmax(340px,1fr));
+gap:30px;
+}
+
+.tarjeta-oxford{
+background;
+border-radius:22px;
+padding:28px;
+position;
+
+border-top:6px solid #D4AF37;
+
+box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+opacity:0;
+transform:translateY(30px);
+
+transition:
+    transform .45s ease,
+    opacity .45s ease,
+    box-shadow .45s ease;
+
+}
+
+.tarjeta-oxford.mostrar{
+opacity:1;
+transform(0);
+}
+
+.tarjeta-oxford{
+transform(-8px);
+box-shadow:
+0 20px 50px rgba(0,0,0,.12);
+}
+
+.tarjeta-icono{
+font-size:2rem;
+margin-bottom:12px;
+}
+
+.etiqueta{
+display;
+
+background:#EDF4FF;
+color:#163F74;
+
+padding:8px 14px;
+border-radius:30px;
+
+font-size:.85rem;
+font-weight:600;
+
+margin-bottom:16px;
+
+}
+
+.tarjeta-oxford h3{
+color:#163F74;
+margin-bottom:10px;
+}
+
+.fecha-item{
+display;
+color:#D4AF37;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.tarjeta-oxford p{
+line-height:1.8;
+color:#555;
+min-height:130px;
+}
+
+.autor-box{
+margin-bottom:18px;
+}
+
+.autor-box strong{
+display;
+color:#163F74;
+}
+
+.autor-box span{
+color:#777;
+font-size:.9rem;
+}
+
+.btn-oxford{
+display;
+
+background:#163F74;
+color:white;
+
+text-decoration:none;
+
+padding:12px 22px;
+
+border-radius:12px;
+
+transition:.3s;
+
+}
+
+.btn-oxford{
+background:#245799;
+transform(1.05);
+}
+
+@media(max-width:768px){
+
+.oxford-tarjetas{
+    grid-template-columns:1fr;
+}
+
+}

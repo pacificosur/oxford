@@ -2410,3 +2410,31 @@ RESPONSIVE
 }
 
 }
+
+
+.autor-experiencia{
+
+    margin-top:10px;
+
+    margin-bottom:18px;
+
+    padding-top:12px;
+
+    border-top:1px solid #e5e7eb;
+}
+
+.autor-experiencia strong{
+
+    display:block;
+
+    color:#163F74;
+
+    font-size:.95rem;
+}
+
+.autor-experiencia span{
+
+    color:#777;
+
+    font-size:.85rem;
+}

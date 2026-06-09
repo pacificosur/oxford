@@ -1101,7 +1101,7 @@ async function cargarAniversario(){
         if(!response.ok){
 
             throw new Error(
-                'No se pudo cargar aniversario.json'
+                'No se pudo cargar datosrelevantes.json'
             );
 
         }

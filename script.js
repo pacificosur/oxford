@@ -1310,3 +1310,201 @@ fill:'forwards'
 
 }
 );
+
+/* ==========================
+   REFLEXIONES Y EXPERIENCIAS
+========================== */
+
+// =========================
+// JS
+// =========================
+
+const inputFecha =
+document.getElementById("fechaSeleccionada");
+
+const textoFecha =
+document.getElementById("textoFecha");
+
+const tarjetaReflexion =
+document.getElementById("tarjetaReflexion");
+
+const tarjetaExperiencia =
+document.getElementById("tarjetaExperiencia");
+
+let reflexiones = {};
+let experiencias = {};
+
+Promise.all([
+fetch("data/reflexiones.json")
+.then(r => r.json()),
+
+fetch("data/experiencias.json")
+    .then(r => r.json())
+
+])
+.then(([datosReflexiones, datosExperiencias]) => {
+
+reflexiones = datosReflexiones;
+experiencias = datosExperiencias;
+
+const hoy = new Date();
+
+inputFecha.value =
+    hoy.toISOString().split("T")[0];
+
+cargarContenido();
+
+});
+
+function formatearClave(fechaISO){
+
+const partes = fechaISO.split("-");
+
+return `${partes[1]}-${partes[2]}`;
+
+}
+
+function mostrarFecha(fechaISO){
+
+const fecha =
+new Date(fechaISO + "T00:00:00");
+
+textoFecha.textContent =
+fecha.toLocaleDateString(
+    "es-MX",
+    {
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+    }
+);
+
+}
+
+function cargarContenido(){
+
+mostrarFecha(
+    inputFecha.value
+);
+
+const clave =
+formatearClave(
+    inputFecha.value
+);
+
+const reflexion =
+reflexiones[clave];
+
+const experiencia =
+experiencias[clave];
+
+if(reflexion){
+
+    document.getElementById(
+        "tituloReflexion"
+    ).textContent =
+    reflexion.titulo;
+
+    document.getElementById(
+        "fechaReflexion"
+    ).textContent =
+    reflexion.fecha;
+
+    document.getElementById(
+        "extractoReflexion"
+    ).textContent =
+    reflexion.extracto;
+
+    document.getElementById(
+        "btnReflexion"
+    ).href =
+    reflexion.url;
+}
+
+if(experiencia){
+
+    document.getElementById(
+        "tituloExperiencia"
+    ).textContent =
+    experiencia.titulo;
+
+    document.getElementById(
+        "fechaExperiencia"
+    ).textContent =
+    experiencia.fecha;
+
+    document.getElementById(
+        "extractoExperiencia"
+    ).textContent =
+    experiencia.extracto;
+
+    document.getElementById(
+        "autorExperiencia"
+    ).textContent =
+    experiencia.autor;
+
+    document.getElementById(
+        "areaExperiencia"
+    ).textContent =
+    experiencia.area;
+
+    document.getElementById(
+        "btnExperiencia"
+    ).href =
+    experiencia.url;
+}
+
+tarjetaReflexion.classList.remove(
+    "mostrar"
+);
+
+tarjetaExperiencia.classList.remove(
+    "mostrar"
+);
+
+setTimeout(() => {
+
+    tarjetaReflexion.classList.add(
+        "mostrar"
+    );
+
+    tarjetaExperiencia.classList.add(
+        "mostrar"
+    );
+
+},150);
+
+}
+
+inputFecha.addEventListener(
+"change",
+cargarContenido
+);
+
+/*
+ESTRUCTURA JSON
+
+reflexiones.json
+
+{
+"06-09": {
+"titulo":"VIVIR EN EL PRESENTE",
+"fecha":"09 de Junio",
+"extracto":"Primeras líneas...",
+"url":"https://www.aamexico.org.mx/"
+}
+}
+
+experiencias.json
+
+{
+"06-09": {
+"titulo":"Ahora puedo compartir",
+"fecha":"09 de Junio de 2026",
+"extracto":"Primeras líneas...",
+"autor":"Mario T.",
+"area":"Área 10 - Chihuahua Norte",
+"url":"https://www.plenitudaa.org.mx/#experiencias"
+}
+}
+*/

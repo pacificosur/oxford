@@ -1084,252 +1084,334 @@ fotoSiguiente
 ========================== */
 
 /* ==========================================
-ANIVERSARIO AA
+   ANIVERSARIO AA
 ========================================== */
 
 let slidesAA = [];
-
 let slideActualAA = 0;
-
-let intervaloAA;
+let intervaloAA = null;
 
 async function cargarAniversario(){
 
-try{
+    try{
 
-const response =
-await fetch(
-'datosrelevantes.json'
-);
+        const response =
+        await fetch('aniversario.json');
 
-slidesAA =
-await response.json();
+        if(!response.ok){
 
-crearBanner();
+            throw new Error(
+                'No se pudo cargar aniversario.json'
+            );
 
-}
-catch(error){
+        }
 
-console.error(
-'Error cargando aniversario:',
-error
-);
+        slidesAA =
+        await response.json();
 
-}
+        if(
+            !Array.isArray(slidesAA) ||
+            slidesAA.length === 0
+        ){
+
+            console.warn(
+                'No hay diapositivas'
+            );
+
+            return;
+
+        }
+
+        crearBanner();
+
+    }
+    catch(error){
+
+        console.error(
+            'Error cargando aniversario:',
+            error
+        );
+
+    }
 
 }
 
 function crearBanner(){
 
-const carousel =
-document.getElementById(
-'anniversaryCarousel'
-);
+    const carousel =
+    document.getElementById(
+        'anniversaryCarousel'
+    );
 
-const dotsContainer =
-document.getElementById(
-'bannerDots'
-);
+    const dotsContainer =
+    document.getElementById(
+        'bannerDots'
+    );
 
-if(!carousel) return;
+    if(!carousel){
 
-carousel.innerHTML = '';
+        console.error(
+            'No existe anniversaryCarousel'
+        );
 
-dotsContainer.innerHTML = '';
+        return;
 
-slidesAA.forEach(
+    }
 
-(slide,index)=>{
+    carousel.innerHTML = '';
 
-carousel.innerHTML += `
+    if(dotsContainer){
 
-<div class="banner-slide
-${index===0?'active':''}">
+        dotsContainer.innerHTML = '';
 
-<img
-src="${slide.imagen}"
-alt="${slide.titulo}">
+    }
 
-<div class="banner-overlay">
+    slidesAA.forEach(
 
-<h2>
+        (slide,index)=>{
 
-${slide.titulo}
+            const activo =
+            index === 0
+            ? 'active'
+            : '';
 
-</h2>
+            carousel.innerHTML += `
 
-<p>
+            <div class="banner-slide ${activo}">
 
-${slide.texto}
+                <img
+                src="${slide.imagen}"
+                alt="${slide.titulo}">
 
-</p>
+                <div class="banner-overlay">
 
-</div>
+                    <h2>
+                        ${slide.titulo}
+                    </h2>
 
-</div>
+                    <p>
+                        ${slide.texto}
+                    </p>
 
-`;
+                </div>
 
-dotsContainer.innerHTML += `
+            </div>
 
-<div
-class="banner-dot
-${index===0?'active':''}"
-data-index="${index}">
-</div>
+            `;
 
-`;
+            if(dotsContainer){
 
-});
+                dotsContainer.innerHTML += `
 
-document
-.querySelectorAll('.banner-dot')
-.forEach(dot=>{
+                <div
+                class="banner-dot ${activo}"
+                data-index="${index}">
+                </div>
 
-dot.addEventListener(
-'click',
-()=>{
+                `;
 
-mostrarSlideAA(
+            }
 
-parseInt(
-dot.dataset.index
-)
+        }
 
-);
+    );
 
-});
+    document
+    .querySelectorAll(
+        '.banner-dot'
+    )
+    .forEach(dot=>{
 
-});
+        dot.addEventListener(
+            'click',
+            ()=>{
 
-document
-.getElementById(
-'bannerPrev'
-)
-.addEventListener(
-'click',
-slideAnteriorAA
-);
+                mostrarSlideAA(
 
-document
-.getElementById(
-'bannerNext'
-)
-.addEventListener(
-'click',
-slideSiguienteAA
-);
+                    Number(
+                        dot.dataset.index
+                    )
 
-iniciarBannerAA();
+                );
+
+            }
+        );
+
+    });
+
+    const prev =
+    document.getElementById(
+        'bannerPrev'
+    );
+
+    if(prev){
+
+        prev.addEventListener(
+            'click',
+            slideAnteriorAA
+        );
+
+    }
+
+    const next =
+    document.getElementById(
+        'bannerNext'
+    );
+
+    if(next){
+
+        next.addEventListener(
+            'click',
+            slideSiguienteAA
+        );
+
+    }
+
+    iniciarBannerAA();
 
 }
 
 function mostrarSlideAA(indice){
 
-const slides =
-document.querySelectorAll(
-'.banner-slide'
-);
+    const slides =
+    document.querySelectorAll(
+        '.banner-slide'
+    );
 
-const dots =
-document.querySelectorAll(
-'.banner-dot'
-);
+    const dots =
+    document.querySelectorAll(
+        '.banner-dot'
+    );
 
-slides.forEach(slide=>{
+    if(
+        slides.length === 0
+    ){
 
-slide.classList.remove(
-'active'
-);
+        return;
 
-});
+    }
 
-dots.forEach(dot=>{
+    if(
+        indice < 0 ||
+        indice >= slides.length
+    ){
 
-dot.classList.remove(
-'active'
-);
+        return;
 
-});
+    }
 
-slideActualAA = indice;
+    slides.forEach(slide=>{
 
-slides[
-slideActualAA
-].classList.add(
-'active'
-);
+        slide.classList.remove(
+            'active'
+        );
 
-dots[
-slideActualAA
-].classList.add(
-'active'
-);
+    });
+
+    dots.forEach(dot=>{
+
+        dot.classList.remove(
+            'active'
+        );
+
+    });
+
+    slideActualAA = indice;
+
+    slides[
+        slideActualAA
+    ].classList.add(
+        'active'
+    );
+
+    if(
+        dots[slideActualAA]
+    ){
+
+        dots[
+            slideActualAA
+        ].classList.add(
+            'active'
+        );
+
+    }
 
 }
 
 function slideSiguienteAA(){
 
-let siguiente =
-slideActualAA + 1;
+    if(
+        slidesAA.length === 0
+    ) return;
 
-if(
-siguiente >=
-slidesAA.length
-){
+    let siguiente =
+    slideActualAA + 1;
 
-siguiente = 0;
+    if(
+        siguiente >=
+        slidesAA.length
+    ){
 
-}
+        siguiente = 0;
 
-mostrarSlideAA(
-siguiente
-);
+    }
+
+    mostrarSlideAA(
+        siguiente
+    );
 
 }
 
 function slideAnteriorAA(){
 
-let anterior =
-slideActualAA - 1;
+    if(
+        slidesAA.length === 0
+    ) return;
 
-if(
-anterior < 0
-){
+    let anterior =
+    slideActualAA - 1;
 
-anterior =
-slidesAA.length - 1;
+    if(
+        anterior < 0
+    ){
 
-}
+        anterior =
+        slidesAA.length - 1;
 
-mostrarSlideAA(
-anterior
-);
+    }
+
+    mostrarSlideAA(
+        anterior
+    );
 
 }
 
 function iniciarBannerAA(){
 
-clearInterval(
-intervaloAA
-);
+    clearInterval(
+        intervaloAA
+    );
 
-intervaloAA =
+    intervaloAA =
 
-setInterval(
+    setInterval(
 
-slideSiguienteAA,
+        slideSiguienteAA,
 
-7000
+        7000
 
-);
+    );
 
 }
 
 document.addEventListener(
 
-'DOMContentLoaded',
+    'DOMContentLoaded',
 
-cargarAniversario
+    ()=>{
+
+        cargarAniversario();
+
+    }
 
 );

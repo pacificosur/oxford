@@ -831,15 +831,25 @@ let fotoActual = 0;
 
 async function cargarGaleria(){
 
+try{
+
 const response =
-await fetch(
-'galeria.json'
-);
+await fetch('galeria.json');
 
 albumes =
 await response.json();
 
 renderAlbumes();
+
+}
+catch(error){
+
+console.error(
+'Error cargando galería:',
+error
+);
+
+}
 
 }
 
@@ -856,41 +866,36 @@ carrusel.innerHTML='';
 
 albumes.forEach(album=>{
 
-carrusel.innerHTML += `
+const card =
+document.createElement('div');
 
-<div class="album-card">
+card.className =
+'album-card';
+
+card.innerHTML = `
 
 <img
 src="${album.portada}"
-alt="${album.titulo}"
->
+alt="${album.titulo}">
 
 <div class="album-content">
 
-<h3>
+<h3>${album.titulo}</h3>
 
-${album.titulo}
-
-</h3>
-
-<p>
-
-${album.descripcion}
-
-</p>
+<p>${album.descripcion}</p>
 
 <div class="album-total">
 
 ${album.fotos.length}
- fotografías
+fotografías
 
 </div>
 
 <br>
 
 <div
-class="album-link"
-onclick="abrirAlbum('${album.id}')">
+class="album-open"
+data-id="${album.id}">
 
 Ver Álbum
 
@@ -898,23 +903,27 @@ Ver Álbum
 
 </div>
 
-</div>
-
 `;
+
+carrusel.appendChild(card);
 
 });
 
-}
+document
+.querySelectorAll('.album-open')
+.forEach(btn=>{
 
-function moverAlbumes(direccion){
+btn.addEventListener(
+'click',
+()=>{
 
-const carrusel =
-document.getElementById(
-'album-carousel'
+abrirAlbum(
+btn.dataset.id
 );
 
-carrusel.scrollLeft +=
-direccion * 500;
+});
+
+});
 
 }
 
@@ -924,6 +933,8 @@ const album =
 albumes.find(
 a => a.id === id
 );
+
+if(!album) return;
 
 fotosActuales =
 album.fotos;
@@ -936,20 +947,38 @@ mostrarFoto();
 
 function mostrarFoto(){
 
-document.getElementById(
+document
+.getElementById(
 'galleryModal'
-).style.display='flex';
+)
+.style.display='flex';
 
-document.getElementById(
+document
+.getElementById(
 'galleryImage'
-).src =
+)
+.src =
 fotosActuales[fotoActual];
 
-document.getElementById(
+document
+.getElementById(
 'galleryTitle'
-).innerText =
+)
+.innerText =
 
-`${fotoActual+1} de ${fotosActuales.length}`;
+`${fotoActual + 1}
+ de
+ ${fotosActuales.length}`;
+
+}
+
+function cerrarGaleria(){
+
+document
+.getElementById(
+'galleryModal'
+)
+.style.display='none';
 
 }
 
@@ -960,7 +989,7 @@ fotoActual--;
 if(fotoActual < 0){
 
 fotoActual =
-fotosActuales.length-1;
+fotosActuales.length - 1;
 
 }
 
@@ -985,12 +1014,67 @@ mostrarFoto();
 
 }
 
-function cerrarGaleria(){
-
-document.getElementById(
-'galleryModal'
-).style.display='none';
-
-}
+document
+.addEventListener(
+'DOMContentLoaded',
+()=>{
 
 cargarGaleria();
+
+const carrusel =
+document.getElementById(
+'album-carousel'
+);
+
+document
+.getElementById(
+'album-prev'
+)
+.addEventListener(
+'click',
+()=>{
+
+carrusel.scrollLeft -= 450;
+
+});
+
+document
+.getElementById(
+'album-next'
+)
+.addEventListener(
+'click',
+()=>{
+
+carrusel.scrollLeft += 450;
+
+});
+
+document
+.getElementById(
+'galleryClose'
+)
+.addEventListener(
+'click',
+cerrarGaleria
+);
+
+document
+.getElementById(
+'fotoAnterior'
+)
+.addEventListener(
+'click',
+fotoAnterior
+);
+
+document
+.getElementById(
+'fotoSiguiente'
+)
+.addEventListener(
+'click',
+fotoSiguiente
+);
+
+});

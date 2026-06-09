@@ -592,3 +592,97 @@ function calcularDiasOxford() {
 }
 
 calcularDiasOxford();
+
+
+/* ==========================================
+   Carrusel de producos plenitud y literatura
+========================================== */
+
+
+let plenitud = [];
+let literatura = [];
+
+async function cargarBiblioteca(){
+
+const p =
+await fetch('plenitud.json');
+
+plenitud =
+await p.json();
+
+const l =
+await fetch('literatura.json');
+
+literatura =
+await l.json();
+
+renderCarrusel(
+'plenitud-carousel',
+plenitud
+);
+
+renderCarrusel(
+'literatura-carousel',
+literatura
+);
+
+}
+
+function renderCarrusel(
+contenedorId,
+datos
+){
+
+const contenedor =
+document.getElementById(
+contenedorId
+);
+
+if(!contenedor) return;
+
+contenedor.innerHTML='';
+
+datos.forEach(item=>{
+
+contenedor.innerHTML += `
+
+<div class="book-item">
+
+<img
+src="${item.imagen}"
+alt="${item.titulo}"
+
+>
+
+<div class="book-info">
+
+<h4>${item.titulo}</h4>
+
+<p>${item.descripcion}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function moverCarrusel(
+tipo,
+direccion
+){
+
+const track =
+document.getElementById(
+tipo + '-carousel'
+);
+
+track.scrollLeft +=
+direccion * 320;
+
+}
+
+cargarBiblioteca();

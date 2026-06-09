@@ -250,85 +250,114 @@ NOTICIA DESTACADA
 
 
 <!-- ===================== -->
-<!-- REFLEXION -->
+<!-- REFLEXION y EXPERIENCIA-->
 <!-- ===================== -->
 
-<section id="reflexion" class="section">
 
-    
+<section class="oxford-diario">
 
-<div class="reflection-layout">
 
-    <!-- TARJETA -->
+<div class="oxford-encabezado">
+    <h2>📅 Reflexión y Experiencia del Día</h2>
+    <p>
+        Selecciona una fecha para consultar una reflexión y una experiencia de recuperación.
+    </p>
+</div>
 
-    <div class="reflection-card">
+<div class="oxford-calendario">
+    <input
+        type="date"
+        id="fechaSeleccionada"
+    >
 
-       
-    
+    <div class="fecha-actual">
+        <span id="textoFecha"></span>
+    </div>
+</div>
 
-        <span id="reflectionDate">
+<div class="oxford-tarjetas">
 
-            Cargando fecha...
+    <!-- REFLEXIÓN -->
 
+    <article class="tarjeta-oxford" id="tarjetaReflexion">
+
+        <div class="tarjeta-icono">
+            📖
+        </div>
+
+        <span class="etiqueta">
+            Reflexión Diaria
         </span>
 
-        <h2 id="reflectionTitle">
+        <h3 id="tituloReflexion">
+            Selecciona una fecha
+        </h3>
 
-            Cargando reflexión...
+        <span
+            class="fecha-item"
+            id="fechaReflexion"
+        >
+        </span>
 
-        </h2>
-
-        <p id="reflectionText">
-
-            Cargando contenido...
-
+        <p id="extractoReflexion">
+            Selecciona una fecha del calendario.
         </p>
 
-        <div class="reflection-footer">
+        <a
+            id="btnReflexion"
+            class="btn-oxford"
+            href="#"
+            target="_blank"
+        >
+            Leer reflexión completa →
+        </a>
 
-            <strong id="reflectionSource">
+    </article>
 
-                24 Horas al Día
+    <!-- EXPERIENCIA -->
 
-            </strong>
+    <article class="tarjeta-oxford" id="tarjetaExperiencia">
 
+        <div class="tarjeta-icono">
+            ✍️
         </div>
 
-    </div>
+        <span class="etiqueta">
+            Experiencia Diaria
+        </span>
 
-     <!-- CALENDARIO -->
+        <h3 id="tituloExperiencia">
+            Selecciona una fecha
+        </h3>
 
-    <div class="calendar-card">
+        <span
+            class="fecha-item"
+            id="fechaExperiencia"
+        >
+        </span>
 
-        <div class="calendar-header">
+        <p id="extractoExperiencia">
+            Selecciona una fecha del calendario.
+        </p>
 
-            <button id="prevMonth">
-
-                ❮
-
-            </button>
-
-            <h3 id="monthTitle">
-
-                Junio 2026
-
-            </h3>
-
-            <button id="nextMonth">
-
-                ❯
-
-            </button>
-
+        <div class="autor-box">
+            <strong id="autorExperiencia"></strong>
+            <span id="areaExperiencia"></span>
         </div>
 
-        <div id="calendarGrid">
+        <a
+            id="btnExperiencia"
+            class="btn-oxford"
+            href="#"
+            target="_blank"
+        >
+            Leer experiencia completa →
+        </a>
 
-        </div>
-
-    </div>
+    </article>
 
 </div>
+
 
 </section>
 

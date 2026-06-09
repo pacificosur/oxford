@@ -1083,14 +1083,95 @@ fotoSiguiente
    banner temas importantes al inicio
 ========================== */
 
+let aniversarioSlides = [];
+
+let slideActual = 0;
+
+async function cargarAniversario(){
+
+try{
+
+const response =
+await fetch(
+'aniversario.json'
+);
+
+aniversarioSlides =
+await response.json();
+
+renderAniversario();
+
+iniciarBanner();
+
+}
+catch(error){
+
+console.error(
+'Error cargando aniversario:',
+error
+);
+
+}
+
+}
+
+function renderAniversario(){
+
+const contenedor =
+document.getElementById(
+'anniversaryCarousel'
+);
+
+if(!contenedor) return;
+
+contenedor.innerHTML='';
+
+aniversarioSlides.forEach(
+
+(slide,index)=>{
+
+contenedor.innerHTML += `
+
+<div
+class="banner-slide
+${index===0 ? 'active' : ''}">
+
+<img
+src="${slide.imagen}"
+alt="${slide.titulo}">
+
+<div class="banner-overlay">
+
+<h2>
+
+${slide.titulo}
+
+</h2>
+
+<p>
+
+${slide.texto}
+
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function iniciarBanner(){
+
 const slides =
 document.querySelectorAll(
 '.banner-slide'
 );
 
-let slideActual = 0;
-
-function cambiarBanner(){
+setInterval(()=>{
 
 slides.forEach(slide=>{
 
@@ -1115,6 +1196,12 @@ slides[slideActual]
 .classList.add(
 'active'
 );
+
+},6000);
+
+}
+
+cargarAniversario();
 
 }
 

@@ -1,0 +1,36 @@
+[
+{
+"id":"interareas",
+"titulo":"XX Congreso Inter-Áreas",
+"descripcion":"Juchitán, Oaxaca 2026",
+"portada":"imagenes/galeria/interareas/portada.jpg",
+"fotos":[
+"imagenes/galeria/interareas/Acapulco1.jpg",
+"imagenes/galeria/interareas/2.jpg",
+"imagenes/galeria/interareas/3.jpg",
+"imagenes/galeria/interareas/4.jpg"
+]
+},
+{
+"id":"renovadora",
+"titulo":"Visita Grupo Sangre Renovadora",
+"descripcion":"Compartiendo experiencia y servicio",
+"portada":"imagenes/galeria/renovadora/portada.jpg",
+"fotos":[
+"imagenes/galeria/renovadora/1.jpg",
+"imagenes/galeria/renovadora/2.jpg",
+"imagenes/galeria/renovadora/3.jpg"
+]
+},
+{
+"id":"convivencia",
+"titulo":"Convivencia de Servicio",
+"descripcion":"Grupo Oxford",
+"portada":"imagenes/galeria/convivencia/portada.jpg",
+"fotos":[
+"imagenes/galeria/convivencia/1.jpg",
+"imagenes/galeria/convivencia/2.jpg",
+"imagenes/galeria/convivencia/3.jpg"
+]
+}
+]

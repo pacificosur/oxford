@@ -1,0 +1,37 @@
+[
+{
+"titulo":"91 Aniversario de Alcohólicos Anónimos",
+"fecha":"10 junio 2026",
+"lugar":"México",
+"descripcion":"Celebración mundial del aniversario de Alcohólicos Anónimos.",
+"imagen":"imagenes/evento1.jpg"
+},
+{
+"titulo":"Desayuno con Locutores y Aliados",
+"fecha":"28 junio 2026",
+"lugar":"Miahuatlán, Oaxaca",
+"descripcion":"Convivencia e información pública con medios de comunicación.",
+"imagen":"imagenes/evento2.jpg"
+},
+{
+"titulo":"XX Congreso de Inter-Áreas",
+"fecha":"31 julio al 2 agosto 2026",
+"lugar":"Juchitán, Oaxaca",
+"descripcion":"Encuentro de áreas para compartir experiencia, fortaleza y esperanza.",
+"imagen":"imagenes/evento3.jpg"
+},
+{
+"titulo":"XXVI Congreso Área Oaxaca Centro",
+"fecha":"23 al 25 octubre 2026",
+"lugar":"Ocotlán de Morelos",
+"descripcion":"Congreso anual del Área Oaxaca Centro.",
+"imagen":"imagenes/evento4.jpg"
+},
+{
+"titulo":"14ª Convención Nacional",
+"fecha":"11 al 13 junio 2027",
+"lugar":"Estadio Banorte, CDMX",
+"descripcion":"AA: Una Luz de Esperanza.",
+"imagen":"imagenes/evento5.jpg"
+}
+]

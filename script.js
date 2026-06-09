@@ -819,3 +819,159 @@ async function cargarVisitas() {
 }
 
 cargarVisitas();
+
+/* ==========================
+  galeria
+========================== */
+
+let albumes = [];
+
+let fotosActuales = [];
+
+let fotoActual = 0;
+
+async function cargarGaleria(){
+
+const response =
+await fetch(
+'galeria.json'
+);
+
+albumes =
+await response.json();
+
+renderAlbumes();
+
+}
+
+function renderAlbumes(){
+
+const container =
+document.getElementById(
+'albums-container'
+);
+
+if(!container) return;
+
+container.innerHTML='';
+
+albumes.forEach(album=>{
+
+container.innerHTML += `
+
+<div
+class="album-card"
+onclick="abrirAlbum('${album.id}')">
+
+<img
+src="${album.portada}"
+alt="${album.titulo}">
+
+<div class="album-content">
+
+<h3>
+
+${album.titulo}
+
+</h3>
+
+<p>
+
+${album.descripcion}
+
+</p>
+
+<div class="album-badge">
+
+${album.fotos.length}
+Fotografías
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function abrirAlbum(id){
+
+const album =
+albumes.find(
+a => a.id === id
+);
+
+fotosActuales =
+album.fotos;
+
+fotoActual = 0;
+
+mostrarFoto();
+
+}
+
+function mostrarFoto(){
+
+document.getElementById(
+'galleryModal'
+).style.display='flex';
+
+document.getElementById(
+'galleryImage'
+).src =
+fotosActuales[fotoActual];
+
+document.getElementById(
+'galleryTitle'
+).innerText =
+
+`${fotoActual+1} / ${fotosActuales.length}`;
+
+}
+
+function fotoAnterior(){
+
+fotoActual--;
+
+if(fotoActual < 0){
+
+fotoActual =
+fotosActuales.length-1;
+
+}
+
+mostrarFoto();
+
+}
+
+function fotoSiguiente(){
+
+fotoActual++;
+
+if(
+fotoActual >=
+fotosActuales.length
+){
+
+fotoActual = 0;
+
+}
+
+mostrarFoto();
+
+}
+
+function cerrarGaleria(){
+
+document.getElementById(
+'galleryModal'
+).style.display='none';
+
+}
+
+cargarGaleria();
+

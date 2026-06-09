@@ -1,0 +1,22 @@
+[
+{
+"titulo":"Libro Grande",
+"descripcion":"Alcohólicos Anónimos.",
+"imagen":"imagenes/librogrande.jpg"
+},
+{
+"titulo":"12 Pasos y 12 Tradiciones",
+"descripcion":"Programa de recuperación.",
+"imagen":"imagenes/12x12.jpg"
+},
+{
+"titulo":"Viviendo Sobrio",
+"descripcion":"Herramientas para la sobriedad.",
+"imagen":"imagenes/viviendosobrio.jpg"
+},
+{
+"titulo":"Folletos",
+"descripcion":"Literatura complementaria.",
+"imagen":"imagenes/folletos.jpg"
+}
+]

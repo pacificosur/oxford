@@ -1402,3 +1402,106 @@ min-width:220px;
 
 }
 
+/* ==========================================
+   Carrusel de eventos
+========================================== */
+.event-card{
+
+min-width:340px;
+
+background:#fff;
+
+border-radius:22px;
+
+overflow:hidden;
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.12);
+
+transition:.35s;
+
+flex-shrink:0;
+
+}
+
+.event-card:hover{
+
+transform:
+translateY(-10px);
+
+}
+
+.event-card img{
+
+width:100%;
+
+height:240px;
+
+object-fit:cover;
+
+}
+
+.event-content{
+
+padding:22px;
+
+}
+
+.event-content h3{
+
+margin-bottom:10px;
+
+color:#0b1f3a;
+
+font-size:1.3rem;
+
+}
+
+.event-fecha{
+
+display:inline-block;
+
+padding:8px 14px;
+
+border-radius:50px;
+
+background:#d4af37;
+
+color:#fff;
+
+font-size:.9rem;
+
+margin-bottom:15px;
+
+}
+
+.event-lugar{
+
+font-weight:600;
+
+margin-bottom:12px;
+
+opacity:.8;
+
+}
+
+.event-descripcion{
+
+line-height:1.7;
+
+opacity:.8;
+
+}
+
+@media(max-width:768px){
+
+.event-card{
+
+min-width:280px;
+
+}
+
+}
+
+
+

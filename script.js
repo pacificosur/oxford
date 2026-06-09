@@ -1083,9 +1083,15 @@ fotoSiguiente
    banner temas importantes al inicio
 ========================== */
 
-let aniversarioSlides = [];
+/* ==========================================
+ANIVERSARIO AA
+========================================== */
 
-let slideActual = 0;
+let slidesAA = [];
+
+let slideActualAA = 0;
+
+let intervaloAA;
 
 async function cargarAniversario(){
 
@@ -1096,12 +1102,10 @@ await fetch(
 'aniversario.json'
 );
 
-aniversarioSlides =
+slidesAA =
 await response.json();
 
-renderAniversario();
-
-iniciarBanner();
+crearBanner();
 
 }
 catch(error){
@@ -1115,26 +1119,32 @@ error
 
 }
 
-function renderAniversario(){
+function crearBanner(){
 
-const contenedor =
+const carousel =
 document.getElementById(
 'anniversaryCarousel'
 );
 
-if(!contenedor) return;
+const dotsContainer =
+document.getElementById(
+'bannerDots'
+);
 
-contenedor.innerHTML='';
+if(!carousel) return;
 
-aniversarioSlides.forEach(
+carousel.innerHTML = '';
+
+dotsContainer.innerHTML = '';
+
+slidesAA.forEach(
 
 (slide,index)=>{
 
-contenedor.innerHTML += `
+carousel.innerHTML += `
 
-<div
-class="banner-slide
-${index===0 ? 'active' : ''}">
+<div class="banner-slide
+${index===0?'active':''}">
 
 <img
 src="${slide.imagen}"
@@ -1160,18 +1170,71 @@ ${slide.texto}
 
 `;
 
+dotsContainer.innerHTML += `
+
+<div
+class="banner-dot
+${index===0?'active':''}"
+data-index="${index}">
+</div>
+
+`;
+
 });
+
+document
+.querySelectorAll('.banner-dot')
+.forEach(dot=>{
+
+dot.addEventListener(
+'click',
+()=>{
+
+mostrarSlideAA(
+
+parseInt(
+dot.dataset.index
+)
+
+);
+
+});
+
+});
+
+document
+.getElementById(
+'bannerPrev'
+)
+.addEventListener(
+'click',
+slideAnteriorAA
+);
+
+document
+.getElementById(
+'bannerNext'
+)
+.addEventListener(
+'click',
+slideSiguienteAA
+);
+
+iniciarBannerAA();
 
 }
 
-function iniciarBanner(){
+function mostrarSlideAA(indice){
 
 const slides =
 document.querySelectorAll(
 '.banner-slide'
 );
 
-setInterval(()=>{
+const dots =
+document.querySelectorAll(
+'.banner-dot'
+);
 
 slides.forEach(slide=>{
 
@@ -1181,31 +1244,92 @@ slide.classList.remove(
 
 });
 
-slideActual++;
+dots.forEach(dot=>{
 
-if(
-slideActual >=
-slides.length
-){
-
-slideActual = 0;
-
-}
-
-slides[slideActual]
-.classList.add(
+dot.classList.remove(
 'active'
 );
 
-},6000);
+});
+
+slideActualAA = indice;
+
+slides[
+slideActualAA
+].classList.add(
+'active'
+);
+
+dots[
+slideActualAA
+].classList.add(
+'active'
+);
 
 }
 
-cargarAniversario();
+function slideSiguienteAA(){
+
+let siguiente =
+slideActualAA + 1;
+
+if(
+siguiente >=
+slidesAA.length
+){
+
+siguiente = 0;
 
 }
+
+mostrarSlideAA(
+siguiente
+);
+
+}
+
+function slideAnteriorAA(){
+
+let anterior =
+slideActualAA - 1;
+
+if(
+anterior < 0
+){
+
+anterior =
+slidesAA.length - 1;
+
+}
+
+mostrarSlideAA(
+anterior
+);
+
+}
+
+function iniciarBannerAA(){
+
+clearInterval(
+intervaloAA
+);
+
+intervaloAA =
 
 setInterval(
-cambiarBanner,
-6000
+
+slideSiguienteAA,
+
+7000
+
+);
+
+}
+
+document.addEventListener(
+
+'DOMContentLoaded',
+
+cargarAniversario
+
 );

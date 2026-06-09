@@ -581,61 +581,80 @@ Bienestar y nutrición.
 <!-- GALERIA -->
 <!-- ===================== -->
 
-    <section id="galeria" class="section">
+<section id="galeria" class="section">
 
+    <div class="section-header">
 
-<div class="section-header">
+        <h2>Galería Fotográfica</h2>
 
-    <h2>Galería Fotográfica</h2>
+        <p>
+            Compartiendo experiencia,
+            fortaleza y esperanza.
+        </p>
 
-    <p>
-        Compartiendo experiencia, fortaleza y esperanza.
-    </p>
+    </div>
 
-</div>
+    <div class="album-carousel-container">
 
-<div
-    id="albums-container"
-    class="albums-grid">
-</div>
-```
+        <button
+        class="album-btn prev"
+        onclick="moverAlbumes(-1)">
+        ❮
+        </button>
+
+        <div
+        id="album-carousel"
+        class="album-carousel">
+        </div>
+
+        <button
+        class="album-btn next"
+        onclick="moverAlbumes(1)">
+        ❯
+        </button>
+
+    </div>
 
 </section>
 
-<!-- VISOR -->
+<!-- MODAL -->
 
 <div
-    id="galleryModal"
-    class="gallery-modal">
+id="galleryModal"
+class="gallery-modal">
 
-```
 <span
-    class="gallery-close"
-    onclick="cerrarGaleria()">
-    ×
+class="gallery-close"
+onclick="cerrarGaleria()">
+
+×
+
 </span>
 
 <img
-    id="galleryImage"
-    class="gallery-image">
+id="galleryImage"
+class="gallery-image">
 
 <div
-    id="galleryTitle"
-    class="gallery-title">
+id="galleryTitle"
+class="gallery-title">
 </div>
 
 <button
-    class="gallery-nav prev"
-    onclick="fotoAnterior()">
-    ❮
+class="gallery-nav prev"
+onclick="fotoAnterior()">
+
+❮
+
 </button>
 
 <button
-    class="gallery-nav next"
-    onclick="fotoSiguiente()">
-    ❯
-</button>
+class="gallery-nav next"
+onclick="fotoSiguiente()">
 
+❯
+
+</button>
 
 </div>
 

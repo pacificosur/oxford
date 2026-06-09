@@ -1315,62 +1315,220 @@ fill:'forwards'
    REFLEXIONES Y EXPERIENCIAS
 ========================== */
 
-// =========================
-// JS
-// =========================
-
-const inputFecha =
-document.getElementById("fechaSeleccionada");
-
-const textoFecha =
-document.getElementById("textoFecha");
-
-const tarjetaReflexion =
-document.getElementById("tarjetaReflexion");
-
-const tarjetaExperiencia =
-document.getElementById("tarjetaExperiencia");
+/* ==================================================
+REFLEXIONES Y EXPERIENCIAS OXFORD
+================================================== */
 
 let reflexiones = {};
 let experiencias = {};
 
+const meses = [
+"Enero",
+"Febrero",
+"Marzo",
+"Abril",
+"Mayo",
+"Junio",
+"Julio",
+"Agosto",
+"Septiembre",
+"Octubre",
+"Noviembre",
+"Diciembre"
+];
+
+const hoy = new Date();
+
+let fechaSeleccionada = new Date(
+hoy.getFullYear(),
+hoy.getMonth(),
+hoy.getDate()
+);
+
+let mesActual = fechaSeleccionada.getMonth();
+let anioActual = fechaSeleccionada.getFullYear();
+
+/* ==================================================
+CARGAR JSON
+================================================== */
+
 Promise.all([
-fetch("data/reflexiones.json")
-.then(r => r.json()),
-
-fetch("data/experiencias.json")
-    .then(r => r.json())
-
+fetch("reflexiones.json").then(r => r.json()),
+fetch("experiencias.json").then(r => r.json())
 ])
 .then(([datosReflexiones, datosExperiencias]) => {
 
 reflexiones = datosReflexiones;
 experiencias = datosExperiencias;
 
-const hoy = new Date();
-
-inputFecha.value =
-    hoy.toISOString().split("T")[0];
-
+generarCalendario();
 cargarContenido();
+
+})
+.catch(error => {
+
+console.error(
+    "Error cargando JSON:",
+    error
+);
 
 });
 
-function formatearClave(fechaISO){
+/* ==================================================
+CALENDARIO
+================================================== */
 
-const partes = fechaISO.split("-");
+function generarCalendario(){
 
-return `${partes[1]}-${partes[2]}`;
+const contenedor =
+document.getElementById(
+    "diasCalendario"
+);
+
+const tituloMes =
+document.getElementById(
+    "tituloMes"
+);
+
+contenedor.innerHTML = "";
+
+tituloMes.textContent =
+    `${meses[mesActual]} ${anioActual}`;
+
+const primerDia =
+new Date(
+    anioActual,
+    mesActual,
+    1
+);
+
+const ultimoDia =
+new Date(
+    anioActual,
+    mesActual + 1,
+    0
+);
+
+let inicio =
+primerDia.getDay();
+
+inicio =
+inicio === 0
+    ? 6
+    : inicio - 1;
+
+for(let i = 0; i < inicio; i++){
+
+    const vacio =
+    document.createElement("div");
+
+    contenedor.appendChild(
+        vacio
+    );
 
 }
 
-function mostrarFecha(fechaISO){
+for(
+    let dia = 1;
+    dia <= ultimoDia.getDate();
+    dia++
+){
 
-const fecha =
-new Date(fechaISO + "T00:00:00");
+    const boton =
+    document.createElement(
+        "button"
+    );
 
-textoFecha.textContent =
-fecha.toLocaleDateString(
+    boton.className =
+    "dia";
+
+    boton.textContent =
+    dia;
+
+    const fechaBoton =
+    new Date(
+        anioActual,
+        mesActual,
+        dia
+    );
+
+    /* Día actual */
+
+    if(
+        dia === hoy.getDate() &&
+        mesActual === hoy.getMonth() &&
+        anioActual === hoy.getFullYear()
+    ){
+        boton.classList.add(
+            "hoy"
+        );
+    }
+
+    /* Día seleccionado */
+
+    if(
+        dia === fechaSeleccionada.getDate() &&
+        mesActual === fechaSeleccionada.getMonth() &&
+        anioActual === fechaSeleccionada.getFullYear()
+    ){
+        boton.classList.add(
+            "activo"
+        );
+    }
+
+    boton.addEventListener(
+        "click",
+        () => {
+
+            fechaSeleccionada =
+            fechaBoton;
+
+            generarCalendario();
+
+            cargarContenido();
+
+        }
+    );
+
+    contenedor.appendChild(
+        boton
+    );
+
+}
+
+}
+
+/* ==================================================
+FORMATEAR CLAVE JSON
+================================================== */
+
+function obtenerClaveFecha(){
+
+const mes =
+String(
+    fechaSeleccionada.getMonth() + 1
+).padStart(2,"0");
+
+const dia =
+String(
+    fechaSeleccionada.getDate()
+).padStart(2,"0");
+
+return `${mes}-${dia}`;
+
+}
+
+/* ==================================================
+FECHA LEGIBLE
+================================================== */
+
+function actualizarFechaTexto(){
+
+document.getElementById(
+    "textoFecha"
+).textContent =
+
+fechaSeleccionada.toLocaleDateString(
     "es-MX",
     {
         day:"numeric",
@@ -1381,22 +1539,57 @@ fecha.toLocaleDateString(
 
 }
 
+/* ==================================================
+ANIMACIÓN
+================================================== */
+
+function animarTarjetas(){
+
+document
+    .querySelectorAll(
+        ".tarjeta-diaria"
+    )
+    .forEach(tarjeta => {
+
+        tarjeta.animate(
+            [
+                {
+                    opacity:0,
+                    transform:"translateY(15px)"
+                },
+                {
+                    opacity:1,
+                    transform:"translateY(0)"
+                }
+            ],
+            {
+                duration:350,
+                easing:"ease"
+            }
+        );
+
+    });
+
+}
+
+/* ==================================================
+CARGAR CONTENIDO
+================================================== */
+
 function cargarContenido(){
 
-mostrarFecha(
-    inputFecha.value
-);
+actualizarFechaTexto();
 
 const clave =
-formatearClave(
-    inputFecha.value
-);
+obtenerClaveFecha();
 
 const reflexion =
 reflexiones[clave];
 
 const experiencia =
 experiencias[clave];
+
+/* REFLEXIÓN */
 
 if(reflexion){
 
@@ -1419,7 +1612,26 @@ if(reflexion){
         "btnReflexion"
     ).href =
     reflexion.url;
+
+}else{
+
+    document.getElementById(
+        "tituloReflexion"
+    ).textContent =
+    "Sin información";
+
+    document.getElementById(
+        "fechaReflexion"
+    ).textContent = "";
+
+    document.getElementById(
+        "extractoReflexion"
+    ).textContent =
+    "No existe contenido para esta fecha.";
+
 }
+
+/* EXPERIENCIA */
 
 if(experiencia){
 
@@ -1439,72 +1651,74 @@ if(experiencia){
     experiencia.extracto;
 
     document.getElementById(
-        "autorExperiencia"
-    ).textContent =
-    experiencia.autor;
-
-    document.getElementById(
-        "areaExperiencia"
-    ).textContent =
-    experiencia.area;
-
-    document.getElementById(
         "btnExperiencia"
     ).href =
     experiencia.url;
+
+}else{
+
+    document.getElementById(
+        "tituloExperiencia"
+    ).textContent =
+    "Sin información";
+
+    document.getElementById(
+        "fechaExperiencia"
+    ).textContent = "";
+
+    document.getElementById(
+        "extractoExperiencia"
+    ).textContent =
+    "No existe contenido para esta fecha.";
+
 }
 
-tarjetaReflexion.classList.remove(
-    "mostrar"
+animarTarjetas();
+
+}
+
+/* ==================================================
+CAMBIO DE MES
+================================================== */
+
+document
+.getElementById("mesAnterior")
+.addEventListener(
+"click",
+() => {
+
+    mesActual--;
+
+    if(mesActual < 0){
+
+        mesActual = 11;
+        anioActual--;
+
+    }
+
+    generarCalendario();
+
+}
+
 );
 
-tarjetaExperiencia.classList.remove(
-    "mostrar"
+document
+.getElementById("mesSiguiente")
+.addEventListener(
+"click",
+() => {
+
+    mesActual++;
+
+    if(mesActual > 11){
+
+        mesActual = 0;
+        anioActual++;
+
+    }
+
+    generarCalendario();
+
+}
+
 );
-
-setTimeout(() => {
-
-    tarjetaReflexion.classList.add(
-        "mostrar"
-    );
-
-    tarjetaExperiencia.classList.add(
-        "mostrar"
-    );
-
-},150);
-
-}
-
-inputFecha.addEventListener(
-"change",
-cargarContenido
-);
-
-/*
-ESTRUCTURA JSON
-
-reflexiones.json
-
-{
-"06-09": {
-"titulo":"VIVIR EN EL PRESENTE",
-"fecha":"09 de Junio",
-"extracto":"Primeras líneas...",
-"url":"https://www.aamexico.org.mx/"
-}
-}
-
-experiencias.json
-
-{
-"06-09": {
-"titulo":"Ahora puedo compartir",
-"fecha":"09 de Junio de 2026",
-"extracto":"Primeras líneas...",
-"autor":"Mario T.",
-"area":"Área 10 - Chihuahua Norte",
-"url":"https://www.plenitudaa.org.mx/#experiencias"
-}
-}
-*/

@@ -647,45 +647,6 @@ direccion * 380;
 
 cargarEventos();
 
-
-/* ==========================
-   Contador de visitas
-========================== */
-
-/*async function cargarVisitas() {
-
-    try {
-
-        const response =
-        await fetch(
-
-        'https://api.countapi.xyz/hit/grupo-oxford/visitas'
-
-        );
-
-        const data =
-        await response.json();
-
-        document.getElementById(
-        'contador-visitas'
-        ).textContent =
-        data.value.toLocaleString();
-
-    }
-
-    catch(error){
-
-        console.error(
-        'Error contador:',
-        error
-        );
-
-    }
-
-}
-
-cargarVisitas();*/
-
 /* ==========================
   galeria
 ========================== */

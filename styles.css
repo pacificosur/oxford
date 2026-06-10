@@ -2453,7 +2453,7 @@ RESPONSIVE
 }
 
 .resource-card{
-    background:#fff;
+    background:#ffffff;
     border:1px solid #e5e7eb;
     overflow:hidden;
     transition:.35s ease;
@@ -2465,25 +2465,25 @@ RESPONSIVE
 }
 
 .card-image{
-    height:240px;
-    background:#f7f7f5;
+    height:280px;
+    background:#ffffff;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:10px;
+    border-bottom:1px solid #e5e7eb;
 }
 
 .card-image img{
-    max-height:200px;
-    max-width:100%;
     width:auto;
-    height:auto;
+    height:95%;
+    max-width:95%;
     object-fit:contain;
     transition:.4s ease;
 }
 
 .resource-card:hover .card-image img{
-    transform:scale(1.03);
+    transform:scale(1.02);
 }
 
 .card-content{

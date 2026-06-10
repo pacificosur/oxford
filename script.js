@@ -652,7 +652,7 @@ cargarEventos();
    Contador de visitas
 ========================== */
 
-async function cargarVisitas() {
+/*async function cargarVisitas() {
 
     try {
 
@@ -684,7 +684,7 @@ async function cargarVisitas() {
 
 }
 
-cargarVisitas();
+cargarVisitas();*/
 
 /* ==========================
   galeria

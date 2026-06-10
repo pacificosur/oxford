@@ -1767,3 +1767,48 @@ document
 }
 
 );
+
+/* ==========================
+  contador de visitas
+========================== */
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    const contador = document.getElementById('contador-visitas');
+
+    if (!contador) return;
+
+    try {
+
+        const response = await fetch(
+            'https://api.countapi.xyz/hit/pacificosur-github/oxford'
+        );
+
+        const data = await response.json();
+
+        let actual = 0;
+        const objetivo = data.value;
+
+        const animacion = setInterval(() => {
+
+            actual += Math.ceil(objetivo / 50);
+
+            if (actual >= objetivo) {
+                actual = objetivo;
+                clearInterval(animacion);
+            }
+
+            contador.textContent = actual.toLocaleString();
+
+        }, 25);
+
+    } catch (error) {
+
+        console.error('Error cargando contador:', error);
+
+        contador.textContent = '—';
+
+    }
+
+});

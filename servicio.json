@@ -5,17 +5,81 @@
     "icono": "☕",
     "duracion": "1 mes",
     "tipo": "Grupo",
-    "objetivo": "Mantener limpio y preparado el espacio.",
+    "objetivo": "Mantener limpio, ordenado y preparado el lugar de reunión.",
     "funciones": [
-      "Preparar café",
-      "Mantener limpieza",
-      "Abrir y cerrar sala"
+      "Preparar café y agua",
+      "Mantener limpia la sala",
+      "Preparar mesas y sillas",
+      "Apoyar antes y después de la reunión"
     ],
     "noHace": [
       "Administrar fondos",
       "Representar al grupo"
     ],
     "literatura": [
+      "Manual de Servicio",
+      "Doce Tradiciones"
+    ]
+  },
+  {
+    "id": "secretario",
+    "nombre": "Secretario",
+    "icono": "📝",
+    "duracion": "6 meses",
+    "tipo": "Grupo",
+    "objetivo": "Dar seguimiento administrativo y operativo al grupo.",
+    "funciones": [
+      "Tomar acuerdos",
+      "Llevar actas",
+      "Mantener directorios",
+      "Apoyar reuniones de servicio"
+    ],
+    "noHace": [
+      "Tomar decisiones personales",
+      "Sustituir la conciencia de grupo"
+    ],
+    "literatura": [
+      "Manual de Servicio"
+    ]
+  },
+  {
+    "id": "coordinador",
+    "nombre": "Coordinador",
+    "icono": "🎙️",
+    "duracion": "6 meses",
+    "tipo": "Grupo",
+    "objetivo": "Coordinar el funcionamiento general del grupo.",
+    "funciones": [
+      "Coordinar juntas",
+      "Dar seguimiento a servicios",
+      "Promover unidad"
+    ],
+    "noHace": [
+      "Gobernar el grupo",
+      "Imponer decisiones"
+    ],
+    "literatura": [
+      "Doce Conceptos",
+      "Manual de Servicio"
+    ]
+  },
+  {
+    "id": "tesorero",
+    "nombre": "Tesorero",
+    "icono": "💰",
+    "duracion": "6 meses",
+    "tipo": "Grupo",
+    "objetivo": "Administrar responsablemente las contribuciones.",
+    "funciones": [
+      "Registrar ingresos",
+      "Cubrir gastos autorizados",
+      "Presentar informes"
+    ],
+    "noHace": [
+      "Usar fondos sin autorización"
+    ],
+    "literatura": [
+      "Séptima Tradición",
       "Manual de Servicio"
     ]
   }

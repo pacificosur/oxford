@@ -1729,9 +1729,150 @@ document
 
 );
 
+
 /* ==========================
-  contador de visitas, por el momento no tiene
+  servicios
 ========================== */
+let servicios = [];
 
+fetch("servicios.json")
+.then(res => res.json())
+.then(data => {
 
+    servicios = data;
 
+    const contenedor =
+    document.getElementById(
+      "contenedorServicios"
+    );
+
+    data.forEach(servicio => {
+
+        contenedor.innerHTML += `
+
+        <div class="card-servicio"
+             data-id="${servicio.id}">
+
+            <div class="icono-servicio">
+                ${servicio.icono}
+            </div>
+
+            <h3>
+                ${servicio.nombre}
+            </h3>
+
+            <span class="badge">
+                ${servicio.duracion}
+            </span>
+
+        </div>
+
+        `;
+    });
+
+    activarEventos();
+});
+
+function activarEventos(){
+
+    document
+    .querySelectorAll(".card-servicio")
+    .forEach(card => {
+
+        card.addEventListener("click",()=>{
+
+            const id =
+            card.dataset.id;
+
+            abrirServicio(id);
+        });
+    });
+}
+
+function abrirServicio(id){
+
+    const servicio =
+    servicios.find(
+      s => s.id === id
+    );
+
+    document
+    .getElementById(
+      "detalleServicio"
+    ).innerHTML = `
+
+        <h2>
+          ${servicio.icono}
+          ${servicio.nombre}
+        </h2>
+
+        <p>
+          <strong>Duración:</strong>
+          ${servicio.duracion}
+        </p>
+
+        <p>
+          <strong>Tipo:</strong>
+          ${servicio.tipo}
+        </p>
+
+        <h3>Objetivo</h3>
+
+        <p>
+          ${servicio.objetivo}
+        </p>
+
+        <h3>Funciones</h3>
+
+        <ul>
+            ${servicio.funciones
+              .map(f=>`<li>${f}</li>`)
+              .join("")}
+        </ul>
+
+        <h3>No corresponde</h3>
+
+        <ul>
+            ${servicio.noHace
+              .map(f=>`<li>${f}</li>`)
+              .join("")}
+        </ul>
+
+        <h3>Literatura recomendada</h3>
+
+        <ul>
+            ${servicio.literatura
+              .map(f=>`<li>${f}</li>`)
+              .join("")}
+        </ul>
+    `;
+
+    document
+    .getElementById("modalServicio")
+    .classList.add("active");
+}
+
+/* cerrar modal */
+
+document
+.getElementById("cerrarModal")
+.addEventListener("click",()=>{
+
+    document
+    .getElementById("modalServicio")
+    .classList.remove("active");
+});
+
+document
+.getElementById("modalServicio")
+.addEventListener("click",(e)=>{
+
+    if(
+      e.target.id === "modalServicio"
+    ){
+
+        document
+        .getElementById("modalServicio")
+        .classList.remove("active");
+    }
+});

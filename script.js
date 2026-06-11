@@ -1735,7 +1735,7 @@ document
 ========================== */
 let servicios = [];
 
-fetch("servicios.json")
+fetch("servicio.json")
 .then(res => res.json())
 .then(data => {
 

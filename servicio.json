@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cafeteria",
+    "nombre": "Aseo y Cafetería",
+    "icono": "☕",
+    "duracion": "1 mes",
+    "tipo": "Grupo",
+    "objetivo": "Mantener limpio y preparado el espacio.",
+    "funciones": [
+      "Preparar café",
+      "Mantener limpieza",
+      "Abrir y cerrar sala"
+    ],
+    "noHace": [
+      "Administrar fondos",
+      "Representar al grupo"
+    ],
+    "literatura": [
+      "Manual de Servicio"
+    ]
+  }
+]

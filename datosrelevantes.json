@@ -1,5 +1,10 @@
 [
     {
+    "imagen": "imagenes/importante/oxford.jpg",
+    "titulo": "Creciendo Juntos",
+    "texto": "En cada sesión se forman lazos de confianza, aprendizaje y superación que impulsan una transformación duradera."
+},
+    {
         "imagen": "imagenes/importante/tres.jpg",
         "titulo": "91 Años de Esperanza",
         "texto": "Bill Wilson descubrió que ayudar a otro alcohólico era esencial para conservar su propia sobriedad."

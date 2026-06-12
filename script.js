@@ -1733,6 +1733,10 @@ document
 /* ==========================
   servicios
 ========================== */
+/* ==========================
+   SERVICIOS
+========================== */
+
 let servicios = [];
 
 fetch("servicio.json")
@@ -1741,14 +1745,15 @@ fetch("servicio.json")
 
     servicios = data;
 
-    const contenedor =
-    document.getElementById(
-      "contenedorServicios"
-    );
+    const grupo =
+        document.getElementById("serviciosGrupo");
+
+    const distrito =
+        document.getElementById("serviciosDistrito");
 
     data.forEach(servicio => {
 
-        contenedor.innerHTML += `
+        const card = `
 
         <div class="card-servicio"
              data-id="${servicio.id}">
@@ -1766,12 +1771,21 @@ fetch("servicio.json")
             </span>
 
         </div>
-
         `;
+
+        if(servicio.tipo === "Grupo"){
+            grupo.innerHTML += card;
+        } else {
+            distrito.innerHTML += card;
+        }
     });
 
     activarEventos();
 });
+
+/* ==========================
+   EVENTOS
+========================== */
 
 function activarEventos(){
 
@@ -1779,72 +1793,103 @@ function activarEventos(){
     .querySelectorAll(".card-servicio")
     .forEach(card => {
 
-        card.addEventListener("click",()=>{
+        card.addEventListener("click", () => {
 
-            const id =
-            card.dataset.id;
+            abrirServicio(card.dataset.id);
 
-            abrirServicio(id);
         });
+
     });
+
 }
+
+/* ==========================
+   MODAL
+========================== */
 
 function abrirServicio(id){
 
     const servicio =
-    servicios.find(
-      s => s.id === id
-    );
+        servicios.find(s => s.id === id);
+
+    const funciones =
+        servicio.funciones || [];
+
+    const noHace =
+        servicio.noHace || [];
+
+    const literatura =
+        servicio.literatura || [];
+
+    const puestos =
+        servicio.puestos || [];
 
     document
-    .getElementById(
-      "detalleServicio"
-    ).innerHTML = `
+    .getElementById("detalleServicio")
+    .innerHTML = `
 
         <h2>
-          ${servicio.icono}
-          ${servicio.nombre}
+            ${servicio.icono}
+            ${servicio.nombre}
         </h2>
 
         <p>
-          <strong>Duración:</strong>
-          ${servicio.duracion}
+            <strong>Duración:</strong>
+            ${servicio.duracion}
         </p>
 
         <p>
-          <strong>Tipo:</strong>
-          ${servicio.tipo}
+            <strong>Tipo:</strong>
+            ${servicio.tipo}
         </p>
 
+        ${servicio.objetivo ? `
         <h3>Objetivo</h3>
 
         <p>
-          ${servicio.objetivo}
+            ${servicio.objetivo}
         </p>
+        ` : ""}
 
+        ${puestos.length ? `
+        <h3>Servicios incluidos</h3>
+
+        <ul>
+            ${puestos.map(p =>
+                `<li>${p}</li>`
+            ).join("")}
+        </ul>
+        ` : ""}
+
+        ${funciones.length ? `
         <h3>Funciones</h3>
 
         <ul>
-            ${servicio.funciones
-              .map(f=>`<li>${f}</li>`)
-              .join("")}
+            ${funciones.map(f =>
+                `<li>${f}</li>`
+            ).join("")}
         </ul>
+        ` : ""}
 
+        ${noHace.length ? `
         <h3>No corresponde</h3>
 
         <ul>
-            ${servicio.noHace
-              .map(f=>`<li>${f}</li>`)
-              .join("")}
+            ${noHace.map(f =>
+                `<li>${f}</li>`
+            ).join("")}
         </ul>
+        ` : ""}
 
+        ${literatura.length ? `
         <h3>Literatura recomendada</h3>
 
         <ul>
-            ${servicio.literatura
-              .map(f=>`<li>${f}</li>`)
-              .join("")}
+            ${literatura.map(f =>
+                `<li>${f}</li>`
+            ).join("")}
         </ul>
+        ` : ""}
     `;
 
     document
@@ -1852,27 +1897,30 @@ function abrirServicio(id){
     .classList.add("active");
 }
 
-/* cerrar modal */
+/* ==========================
+   CERRAR MODAL
+========================== */
 
 document
 .getElementById("cerrarModal")
-.addEventListener("click",()=>{
+.addEventListener("click", () => {
 
     document
     .getElementById("modalServicio")
     .classList.remove("active");
+
 });
 
 document
 .getElementById("modalServicio")
-.addEventListener("click",(e)=>{
+.addEventListener("click", (e) => {
 
-    if(
-      e.target.id === "modalServicio"
-    ){
+    if(e.target.id === "modalServicio"){
 
         document
         .getElementById("modalServicio")
         .classList.remove("active");
+
     }
+
 });

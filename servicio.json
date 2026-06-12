@@ -82,5 +82,63 @@
       "Séptima Tradición",
       "Manual de Servicio"
     ]
-  }
+  },
+  {
+  "id":"rsg",
+  "nombre":"Representación de Servicios Generales",
+  "icono":"🏛️",
+  "duracion":"2 años",
+  "tipo":"Distrito",
+
+  "objetivo":
+  "Servir como enlace entre el Grupo Oxford y el distrito.",
+
+  "funciones":[
+    "Asistir a reuniones distritales",
+    "Transmitir información al grupo",
+    "Representar la conciencia de grupo",
+    "Mantener comunicación con el distrito"
+  ],
+
+  "puestos":[
+    "RSG Propietario",
+    "RSG Suplente"
+  ]
+},
+  {
+  "id":"literatura-plenitud",
+  "nombre":"Literatura y Plenitud",
+  "icono":"📚",
+  "duracion":"6 meses",
+  "tipo":"Distrito",
+
+  "objetivo":
+  "Compartir literatura y experiencias de recuperación.",
+
+  "funciones":[
+    "Mantener literatura disponible",
+    "Difundir material aprobado",
+    "Compartir noticias de servicio",
+    "Promover la recuperación"
+  ],
+
+  "puestos":[
+    "Servidor de Literatura",
+    "Servidor de Plenitud"
+  ]
+},
+  {
+  "id":"correccionales",
+  "nombre":"Instituciones Correccionales",
+  "icono":"🏥",
+  "duracion":"6 meses",
+  "tipo":"Distrito"
+},
+  {
+  "id":"informacion-publica",
+  "nombre":"Información al Público",
+  "icono":"📢",
+  "duracion":"6 meses",
+  "tipo":"Distrito"
+}
 ]

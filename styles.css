@@ -1264,7 +1264,7 @@ min-width:220px;
 ========================================== */
 .event-card{
 
-min-width:340px;
+min-width:240px;
 
 background:#fff;
 
@@ -1291,11 +1291,12 @@ translateY(-10px);
 .event-card img{
 
     width:100%;
-    aspect-ratio:2/3;
+    height:540px;
     object-fit:cover;
     object-position:top;
 
 }
+
 
 .event-content{
 

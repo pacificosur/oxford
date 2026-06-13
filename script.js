@@ -1292,6 +1292,19 @@ REFLEXIONES Y EXPERIENCIAS OXFORD
 let reflexiones = {};
 let experiencias = {};
 
+const fondos = [
+
+"imagenes/fondos/fondo1.jpg",
+"imagenes/fondos/fondo2.jpg",
+"imagenes/fondos/fondo3.jpg",
+"imagenes/fondos/fondo4.jpg",
+"imagenes/fondos/fondo5.jpg",
+"imagenes/fondos/fondo6.jpg",
+"imagenes/fondos/fondo7.jpg",
+"imagenes/fondos/fondo8.jpg"
+
+];
+
 const meses = [
 "Enero",
 "Febrero",
@@ -1487,6 +1500,40 @@ String(
 return `${mes}-${dia}`;
 
 }
+/* ==================================================
+aplicar fondo tarjeta reflexiones y experiencias
+================================================== */
+function aplicarFondos(){
+
+const clave =
+obtenerClaveFecha();
+
+const numero =
+parseInt(
+clave.replace("-","")
+);
+
+const fondoReflexion =
+fondos[
+numero % fondos.length
+];
+
+const fondoExperiencia =
+fondos[
+(numero + 3) % fondos.length
+];
+
+document.getElementById(
+"cardReflexion"
+).style.backgroundImage =
+`url('${fondoReflexion}')`;
+
+document.getElementById(
+"cardExperiencia"
+).style.backgroundImage =
+`url('${fondoExperiencia}')`;
+
+}
 
 /* ==================================================
 FECHA LEGIBLE
@@ -1678,6 +1725,8 @@ if(experiencia){
     "#";
 
 }
+
+aplicarFondos();
 
 animarTarjetas();
 
